@@ -40,8 +40,38 @@ INSTALLED_APPS = [
     'apps.orders',
     'apps.carts',
     'apps.products',
-    'apps.catalogs'
+    'apps.catalogs',
+
+    # for oauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.microsoft',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        
+    },
+    'facebook': {
+
+    },
+    'microsoft': {
+
+    }
+}
+
+SITE_ID = 2
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     # 'django.middleware.cache.UpdateCacheMiddleware',              # page caching
